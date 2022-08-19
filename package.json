@@ -1,0 +1,25 @@
+{
+    "name": "weather-app",
+    "version": "1.5.0",
+    "description": "weather prediction",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon index.js",
+        "debug": "node --inspect-brk=0.0.0.0:9229 index.js",
+        "update": "npm install -g"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Compass-pb-rasa-2022-RG-Pel/sprint-2-pb-rg-pel/tree/fernando-barbosa"
+    },
+    "dependencies": {
+        "body-parser": "^1.20.0",
+        "dotenv": "^16.0.1",
+        "express": "^4.17.1",
+        "mongoose": "^6.3.5",
+        "nano": "^10.0.0",
+        "node-fetch": "^3.2.5",
+        "nodemon": "^2.0.16"
+    }
+}
