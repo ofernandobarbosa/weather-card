@@ -48,16 +48,16 @@
                 </section>
             </div>
             <footer class="mx-auto pb-3">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="cidade" aria-label="cidade"
-                        aria-describedby="basic-addon2">
+                <form method="post" action="/searchCity" class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="cidade" aria-label="cidade" name="cidade"
+                        aria-describedby="basic-addon2" required>
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" data-bt-pesquisa type="button">Pesquisa</button>
+                        <button class="btn btn-outline-secondary" data-bt-pesquisa type="submit">Pesquisa</button>
                     </div>
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" data-bt-historico type="button">Histórico</button>
                     </div>
-                </div>
+                </form>
             </footer>
         </div>
         <section class="pt-3">
@@ -80,7 +80,7 @@
             </table>
         </section>
     </div>
-    <script src="../js/script.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>

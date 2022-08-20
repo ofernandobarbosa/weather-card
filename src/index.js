@@ -13,15 +13,15 @@ const app = express();
 const key = process.env.KEY;
 const port = process.env.PORT;
 const __dirname = process.cwd();
-const base = process.env.BASE
+const base = process.env.BASE;
 
-app.use(express.static('.'));
-app.use(bp.json())
-app.use(bp.urlencoded({ extended: false }))
+app.use(express.static(__dirname + '/public'));
+app.use(bp.json());
+app.use(bp.urlencoded({ extended: false }));
 
 //rota raiz da aplicação
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + '/www/index.html')
+  res.sendFile(__dirname + '/public/index.html');
 })
 
 //rota para buscar estado atual do tempo com geolocalização
@@ -35,12 +35,12 @@ app.get("/latlon/:latlon", async (req, res) => {
   res.json(weather_data); //devolve a response para request
 })
 
-app.get("/searchCity/:city", async (req, res) => {
-  const city = req.params.city;
+app.post("/searchCity", async (req, res) => {
+  const city = req.body.cidade.trim();
   const weather_url = `${base}appid=${key}&q=${city}`; //monta url de request
   const weather_res = await fetch(weather_url); //recebe uma promisse da fetch
   const weather_data = await weather_res.json(); //convert response em um json
-  res.json(weather_data); //devolve a response para request
+  return res.send(weather_data); //devolve a response para request
 })
 
 

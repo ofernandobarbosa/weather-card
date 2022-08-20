@@ -14,16 +14,6 @@ const hist_button = document.querySelector('[data-bt-historico');
 const inputEle = document.getElementById('enter');
 const tbody = document.querySelector('[data-table]');
 
-let ehPesquisa;
-//chamada funções de botão 
-search_button.addEventListener('click', () => { searchByInput(search_input.value) });
-
-search_input.addEventListener('keyup', function (e) {
-    var key = e.key;
-    if (key == 'Enter') {
-        searchByInput(search_input.value);
-    }
-});
 //verifica se o navegador possui geolocation e busca os dados no servidor da previsão do tempo para as coordenadas extraidas
 if ('geolocation' in navigator) {
     navigator.geolocation.getCurrentPosition(async position => {
@@ -38,32 +28,32 @@ if ('geolocation' in navigator) {
     alert("Desculpe mas seu navegador não possui Geolocalização")
 }
 
-async function searchByInput(city) {
-    const res = await fetch(`/searchCity/${city}`)
-    const jsonResponse = await res.json();
-    displayResults(jsonResponse);
-    const date = new Date();
-    //inserindo dados no banco
-    const weather = {
-        searchedCity: city,
-        icon: `https://openweathermap.org/img/wn/${jsonResponse.weather[0].icon}@2x.png`,
-        weatherDescription: jsonResponse.weather[0].description,
-        temp: Math.round(jsonResponse.main.temp),
-        measureUnit: 'c',
-        windSpeed: Math.round(jsonResponse.wind.speed),
-        time: date,
-        humidity: jsonResponse.main.humidity
-    }
-    const options = {
-        method: 'POST',
-        body: JSON.stringify(weather),
-        headers: {
-            "Content-type": "application/json; charset=UTF-8",
-            'Accept': 'application/json'
-        }
-    }
-    await fetch(`/db/`, options)
-}
+// async function searchByInput(city) {
+//     const res = await fetch(`/searchCity/${city}`)
+//     const jsonResponse = await res.json();
+//     displayResults(jsonResponse);
+//     const date = new Date();
+//     //inserindo dados no banco
+//     const weather = {
+//         searchedCity: city,
+//         icon: `https://openweathermap.org/img/wn/${jsonResponse.weather[0].icon}@2x.png`,
+//         weatherDescription: jsonResponse.weather[0].description,
+//         temp: Math.round(jsonResponse.main.temp),
+//         measureUnit: 'c',
+//         windSpeed: Math.round(jsonResponse.wind.speed),
+//         time: date,
+//         humidity: jsonResponse.main.humidity
+//     }
+//     const options = {
+//         method: 'POST',
+//         body: JSON.stringify(weather),
+//         headers: {
+//             "Content-type": "application/json; charset=UTF-8",
+//             'Accept': 'application/json'
+//         }
+//     }
+//     await fetch(`/db/`, options)
+// }
 
 function displayResults(dataWeather) {
     city.innerText = `${dataWeather.name}`;
