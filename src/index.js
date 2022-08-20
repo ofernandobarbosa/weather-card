@@ -1,9 +1,10 @@
 //importando bibliotecas
 import mongoose from 'mongoose';
 import { } from 'dotenv/config';
-import fetch from 'node-fetch'; 
+import fetch from 'node-fetch';
 import Weather from './models/Weather.js'
 import bp from 'body-parser' //import necessário para receber um stringfy com post
+import cors from 'cors';
 
 //import da framework express
 import express from 'express';
@@ -15,6 +16,7 @@ const port = process.env.PORT;
 const __dirname = process.cwd();
 const base = process.env.BASE;
 
+app.use(cors());
 app.use(express.static(__dirname + '/public'));
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: false }));
@@ -35,12 +37,12 @@ app.get("/latlon/:latlon", async (req, res) => {
   res.json(weather_data); //devolve a response para request
 })
 
-app.post("/searchCity", async (req, res) => {
-  const city = req.body.cidade.trim();
+app.get("/searchCity/:cidade", async (req, res) => {
+  const city = req.params.cidade;
   const weather_url = `${base}appid=${key}&q=${city}`; //monta url de request
   const weather_res = await fetch(weather_url); //recebe uma promisse da fetch
   const weather_data = await weather_res.json(); //convert response em um json
-  return res.send(weather_data); //devolve a response para request
+  res.json(weather_data); //devolve a response para request
 })
 
 
@@ -80,11 +82,11 @@ app.post('/db/', async (req, res) => {
 })
 
 //busca todos os dados do banco
-app.get('/list', async(req,res) =>{
+app.get('/list', async (req, res) => {
   try {
     const weather = await Weather.find();
     res.status(200).json(weather)
   } catch (error) {
-    res.status(500).json({error: error})
+    res.status(500).json({ error: error })
   }
 })
