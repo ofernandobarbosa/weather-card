@@ -1,6 +1,6 @@
-// define as variáveis para manipular o DOM
-const dayWeek = document.querySelector('[data-day-week]')
-const city = document.querySelector('[data-city]')
+// VARIAVEIS CURRENT WEATHER
+const dayWeek = document.querySelector('[data-day-week]');
+const city = document.querySelector('[data-city]');
 const region = document.querySelector('[data-region]');
 const icon = document.querySelector('[data-icon]');
 const weather_description = document.querySelector('[data-description]');
@@ -9,6 +9,10 @@ const wind_speed = document.querySelector('[data-wind]');
 const feelslike = document.querySelector('[data-feelslike]');
 const humidity = document.querySelector('[data-humidity]');
 const tbody = document.querySelector('[data-table]');
+const feelsLike = document.querySelector('[data-feels-like]');
+
+//VARIAVEIS WEEK WEATHER
+
 
 //verifica se o navegador possui geolocation e busca os dados no servidor da previsão do tempo para as coordenadas extraidas
 async function getWeatherByLoc() {
@@ -43,6 +47,8 @@ function displayResults(dataWeather) {
     weather_description.innerHTML = dataWeather.weather[0].description;
     wind_speed.innerHTML = Math.round(dataWeather.wind.speed);
     humidity.innerHTML = dataWeather.main.humidity;
+    feelsLike.innerHTML = Math.round(dataWeather.main.feels_like);
+
 }
 
 //monta os dias da semana 

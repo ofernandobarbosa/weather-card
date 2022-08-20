@@ -19,3 +19,8 @@ td{
 #data-description{
     text-transform: capitalize;
 }
+
+.tem-max-min{
+    font-size: small;
+    font-weight: lighter;
+}

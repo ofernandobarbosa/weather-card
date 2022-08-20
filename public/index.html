@@ -14,10 +14,9 @@
 
 <body onload="getWeatherByLoc()">
     <div class="box">
-        <div class="card text-white bg-dark bg-gradient mx-auto"
-            style="width: 500px;height: 325px; border-radius: 1.5rem;">
+        <div class="card text-white bg-dark bg-gradient mx-auto" style="width: 500px; border-radius: 1.5rem;">
             <div class="card-body">
-                <header class="text-center pt-3 pb-lg-5">
+                <header class="text-center pt-3 pb-lg-5 text-capitalize">
                     <span class="display-10"><span style="font-weight: bold;" data-day-week> - </span>,
                         <span data-city>Cidade - Estado</span>
                     </span>
@@ -25,11 +24,12 @@
 
                 <section class="align-items-center pt-md-1">
                     <div class="row align-content-center align-content-center align-items-center">
-                        <div class="col text-center m-auto ">
+                        <div class="col text-center m-auto">
                             <!-- Icon -->
                             <div class="flex-column">
                                 <img data-icon src="https://openweathermap.org/img/wn/01d@2x.png">
-                            </div><!-- Estado do tempo -->
+                            </div>
+                            <!-- Descrição do tempo -->
                             <div class="flex-column pt-3">
                                 <span id="data-description" data-description>-</span>
                             </div>
@@ -37,17 +37,18 @@
                         </div>
                         <!-- Temperatura -->
                         <div class="col text-center m-auto" style="font-weight: bold; font-size: 3rem;">
-                            <span data-temp>-</span> °c
+                            <div><span data-temp>-</span> <span id="unit">°c</span></div>
+                            <div class="tem-max-min">feels like <span id="feels-like" data-feels-like>-</span>°c</div>
                         </div>
                         <!-- Informações do tempo -->
                         <div class="col m-auto text-lowercase">
-                            <span class="row-cols-1">vento: <span class="col-1" data-wind>-</span> km/h</span>
-                            <span class="row-cols-1">humidade: <span class="col-1" data-humidity>-</span> %</span>
+                            <div><img src="./assets/icons8-wind-64.png" width="32px"> <span class="row-cols-1"><span class="col-1" data-wind>-</span> km/h</span></div>
+                            <div class="mt-2"><img src="./assets/icons8-humidity-53.png" width="30px"> <span class="row-cols-1"><span class="col-1" data-humidity>-</span> %</span></div>
                         </div>
                     </div>
                 </section>
             </div>
-            <footer class="mx-auto pb-3">
+            <footer class="mx-auto pb-3 mt-5">
                 <form onsubmit="searchByInput();return false" id="cidade" class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="cidade" aria-label="cidade" name="cidade"
                         aria-describedby="basic-addon2" required>
