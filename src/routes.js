@@ -3,7 +3,6 @@ import fetch from 'node-fetch';
 const router = Router();
 const key = process.env.KEY;
 const base = process.env.BASE;
-const base_week = process.env.BASE_WEEK
 
 
 //rota raiz da aplicação
