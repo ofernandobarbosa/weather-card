@@ -12,15 +12,57 @@
     transform: translate(-50%, -50%);
 }
 
-td{
+td {
     text-transform: capitalize;
 }
 
-#data-description{
+#data-description {
     text-transform: capitalize;
 }
 
-.tem-max-min{
+.temp {
     font-size: small;
     font-weight: lighter;
+}
+
+a {
+    font-size: x-small;
+}
+
+.static {
+    position: absolute;
+    background: white
+}
+
+.static:hover {
+    opacity: 0;
+}
+
+.img-button {
+    width: 28px;
+    filter: invert(100%)
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+}
+
+.unit {
+    font-size: small;
+}
+
+.info-temperature {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cropped {
+    width: 60px;
+    /* width of container */
+    height: 60px;
+    /* height of container */
+    object-fit: cover;
 }

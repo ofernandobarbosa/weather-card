@@ -15,47 +15,47 @@
 <body onload="getWeatherByLoc()">
     <div class="box">
         <div class="card text-white bg-dark bg-gradient mx-auto" style="width: 500px; border-radius: 1.5rem;">
+            <header class="mx-auto mt-3">
+                <form onsubmit="searchByInput();return false" id="cidade" class="input-group">
+                    <input type="text" class="form-control" placeholder="cidade" aria-label="cidade" name="cidade"
+                        aria-describedby="basic-addon2" required>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" form="cidade" type="submit"><img class="img-button"
+                                src="./icons/icons8-pesquisar.png"></button>
+                    </div>
+                </form>
+            </header>
             <div class="card-body">
-                <header class="text-center pt-3 pb-lg-5 text-capitalize">
-                    <span class="display-10"><span style="font-weight: bold;" data-day-week> - </span>,
-                        <span data-city>Cidade - Estado</span>
-                    </span>
-                </header>
-
-                <section class="align-items-center pt-md-1">
-                    <div class="row align-content-center align-content-center align-items-center">
-                        <div class="col text-center m-auto">
-                            <!-- Icon -->
-                            <div class="flex-column">
-                                <img data-icon src="https://openweathermap.org/img/wn/01d@2x.png">
-                            </div>
-                            <!-- Descrição do tempo -->
-                            <div class="flex-column pt-3">
-                                <span id="data-description" data-description>-</span>
-                            </div>
-
+                <section class="pt-md-1" style="display:flex;justify-content: space-around; align-items:center">
+                    <!-- Temperatura -->
+                    <div class="text-center align-content-center">
+                        <div class="info-temperature">
+                            <img data-icon src="https://openweathermap.org/img/wn/01d@2x.png" class="cropped">
+                            <span style="font-weight: bold; font-size: 3rem;" data-temp>-</span> <span
+                                id="unit">°c</span>
                         </div>
-                        <!-- Temperatura -->
-                        <div class="col text-center m-auto" style="font-weight: bold; font-size: 3rem;">
-                            <div><span data-temp>-</span> <span id="unit">°c</span></div>
-                            <div class="tem-max-min">sensação <span id="feels-like" data-feels-like>-</span>°c</div>
+                        <div class="temp">sensação <span id="feels-like" data-feels-like>-</span>°c</div>
+                    </div>
+                    <!-- Informações do tempo -->
+                    <div class="text-lowercase">
+                        <div class="info">
+                            <img src="./icons/icons8-wind-64.png" width="32px"> 
+                            <span class="col-1" data-wind>-</span> km/h
                         </div>
-                        <!-- Informações do tempo -->
-                        <div class="col m-auto text-lowercase">
-                            <div><img src="./assets/icons8-wind-64.png" width="32px"> <span class="row-cols-1"><span class="col-1" data-wind>-</span> km/h</span></div>
-                            <div class="mt-2"><img src="./assets/icons8-humidity-53.png" width="30px"> <span class="row-cols-1"><span class="col-1" data-humidity>-</span> %</span></div>
+                        <div class="mt-2 info">
+                            <img src="./icons/icons8-humidity-53.png" width="32px" height="26">
+                            <span class="col-1" data-humidity>-</span>%
                         </div>
                     </div>
                 </section>
             </div>
-            <footer class="mx-auto pb-3 mt-5">
-                <form onsubmit="searchByInput();return false" id="cidade" class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="cidade" aria-label="cidade" name="cidade"
-                        aria-describedby="basic-addon2" required>
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" form="cidade" type="submit">Pesquisa</button>
-                    </div>
-                </form>
+            <div class="text-center text-capitalize mt-3 mb-3">
+                <span class="display-10"><span style="font-weight: bold;" data-day-week> - </span>,
+                    <span data-city>Cidade - Estado</span>
+                </span>
+            </div>
+            <footer class="text-center text-capitalize ">
+                <a href="https://icons8.com" target="_blank" class="link-secondary text-decoration-none">Icons8</a>
             </footer>
         </div>
 
