@@ -1,7 +1,7 @@
 
 ## [Weather App 🌤️](https://weather-rs.herokuapp.com/)
 
-![banner_image](./icons/banner.png)
+![banner_image](./public/assets/weather-app.png)
 
 ## API's utilizadas 👨‍💻
 <br>
@@ -21,4 +21,3 @@
 
 -> Após isso, você pode pesquisar as informações sobre o tempo atual de qualquer outra cidade no mundo.
 
--> Também poderá verificar o histórico de todas das ultimas buscas realizadas.
