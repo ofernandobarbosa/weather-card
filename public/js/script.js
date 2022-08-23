@@ -3,7 +3,6 @@ const dayWeek = document.querySelector('[data-day-week]');
 const city = document.querySelector('[data-city]');
 const region = document.querySelector('[data-region]');
 const icon = document.querySelector('[data-icon]');
-const weather_description = document.querySelector('[data-description]');
 const temperature = document.querySelector('[data-temp]');
 const wind_speed = document.querySelector('[data-wind]');
 const feelslike = document.querySelector('[data-feelslike]');
@@ -50,7 +49,6 @@ function displayResults(dataWeather) {
     dayWeek.innerText = dateBuilder(now);
     icon.src = `https://openweathermap.org/img/wn/${dataWeather.weather[0].icon}@2x.png`;
     temperature.innerHTML = Math.round(dataWeather.main.temp);
-    weather_description.innerHTML = dataWeather.weather[0].description;
     wind_speed.innerHTML = Math.round(dataWeather.wind.speed);
     humidity.innerHTML = dataWeather.main.humidity;
     feelsLike.innerHTML = Math.round(dataWeather.main.feels_like);

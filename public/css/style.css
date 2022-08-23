@@ -46,7 +46,7 @@ a {
 .info {
     display: flex;
     justify-content: space-between;
-    width: 100px;
+    width: 80px;
 }
 
 .unit {
