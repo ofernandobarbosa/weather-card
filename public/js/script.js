@@ -32,10 +32,16 @@ async function getWeatherByLoc() {
 
 async function searchByInput() {
     const cidade = document.querySelector('input').value
-    const res = await fetch(`/searchCity/${cidade}`)
-    const jsonResponse = await res.json();
-    document.querySelector('input').value = ""
-    displayResults(jsonResponse);
+    try {
+        const res = await fetch(`/searchCity/${cidade}`)
+        const jsonResponse = await res.json();
+        document.querySelector('input').value = ""
+        displayResults(jsonResponse);
+    } catch (error) {
+        if (error instanceof TypeError) {
+            alert("A cidade digitada não foi encontrada, faça uma nova pesquisa!")
+        }
+    }
 }
 
 function displayResults(dataWeather) {
